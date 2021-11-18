@@ -88,7 +88,7 @@ jQuery(document).ready(function() {
 I use some js libraries: <br>
 jquery.min.js <br>
 jquery-ui.min.js <br>
-//andi_turn_js.js <br>
+
 
 TURN_JS FILES: <br>
 hash.js <br>
@@ -96,7 +96,9 @@ scissor.js <br>
 turn.html4.js <br>
 turn.js <br>
 zoom.js <br>
-
+<br>
+MY script:<br>
+my_turn_js.js <br>
 <br>
 and the following script from another github user, to make draggable on smartphones
 jquery.ui.touch-punch.js  
