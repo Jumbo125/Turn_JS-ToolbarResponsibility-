@@ -85,4 +85,19 @@ jQuery(document).ready(function() {
  controlls_for_book("yourID", true, "single", true, true, false, true, true, true, false, false, false, true);
 });
 ``` 
+I use some js libraries:
+jquery.min.js
+jquery-ui.min.js
+//andi_turn_js.js
 
+TURN_JS FILES:
+hash.js
+scissor.js
+turn.html4.js
+turn.js
+zoom.js
+
+and the following script from another github user, to make draggable on smartphones
+jquery.ui.touch-punch.js  
+
+A big thank to the developer from turn.js and to all Github users who made their script available 
