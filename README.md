@@ -59,7 +59,7 @@ You can use two different methods:
 All parameters can be set to true or false. BUT: display can only be set to "single" or "double". To get more infos look at the turn.js documentation "display" 
 ```
 controlls_for_all_books(resposive_ratio, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen )
-``
+```
 
 ###Method 2- Set the pdf-book. Use the ID to select the book.
 All parameters can be set to true or false. BUT: display can only be set to "single" or "double". To get more infos look at the turn.js documentation "display" 
