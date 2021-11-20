@@ -39,8 +39,6 @@ The function change the pdf-book size.
 </ul>
 
 <u><b>Use it:</u></b><br>
-<h4>Bei Problemen, <b>zum Drucken oder Speichern</b> klicken sie bitte hier: <a href="images/flyer/aktuell/Flyer.pdf" target="_blank" rel="noopener noreferrer">Flyer</a></h4>
-<p>Alle Infos können Sie aus unserem Flyer entnehmen. Dieser ist online verfügbar: <a href="images/flyer/aktuell/Flyer.pdf" target="_blank" rel="noopener noreferrer">Flyer</a></p></div>
 
 use the code from turn.js to basically inject the pdf-function. You can get more infos in the turn.js Documentation
 ```ruby
