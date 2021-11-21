@@ -83,6 +83,32 @@ jQuery(document).ready(function() {
  controlls_for_book("yourID", true, "single", true, true, false, true, true, true, false, false, false, true);
 });
 ``` 
+
+Style it easy with css, for example:
+```
+.bt-options {
+	width: 90% !important;
+	border-radius: 20px;
+	background-color:#f4f4f4;
+	padding-bottom:1%;
+	box-shadow: 0px 0px 8px 0px #414141;
+} 
+   
+.bt-options i{
+	color:#80ba33;
+	font-size: 2em;
+	margin:1%;
+	text-shadow: 1px 1px 1px black;
+}
+
+.bt-options i:hover{
+	color:black;
+}
+.bt-options a:hover {
+	text-decoration:none;
+}
+```
+
 I use some js libraries: <br>
 jquery.min.js <br>
 jquery-ui.min.js <br>
