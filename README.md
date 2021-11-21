@@ -4,10 +4,12 @@ I use the very great turn.js script to show my pdf files.
 It look's great! But i'm missing some features.
 
 <ul><b><u>it includes:</u></b>
-<li>Toolbar</li>
-<li>Responsibility</li>
-<li>since v2 you can scroll with mousewheel to change site, when the mouse is over the pdf book</li>
+<li>Toolbar(optional)</li>
+<li>Responsibility(optional)</li>
+<li>since v2 you can scroll with mousewheel to change sites, when the mouse is over the pdf book(optional)</li>
 </ul>
+
+<b>Please let me know it, if you use it and you are happy with it</b>
 
 So i wrote a script to easily create a toolbar and make the pdf-book responsibility.
 
