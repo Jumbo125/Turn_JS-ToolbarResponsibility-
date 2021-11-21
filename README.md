@@ -131,8 +131,8 @@ A big thank to the developer from turn.js and to all Github users who made their
 
 Demo:
 <div style="width:90%; //Your responsive width of the parent"><div id="yourID" class="turn_js ui-flipbook" data-pdf-src="path_to_the_pdf_file">
-   <div class="pdf_site" span style="background-image:url(path_to_site_1_jpg);"></div>
-   <div class="pdf_site" span style="background-image:url(path_to_site_2_jpg);"></div>
-   <div class="pdf_site" span style="background-image:url(path_to_site_3_jpg);"></div>
-   <div class="pdf_site" span style="background-image:url(path_to_site_1_jpg);"></div>
+   <div class="pdf_site" span style="background-image:url(https://github.com/Jumbo125/Turn_JS-ToolbarResponsibility-/blob/main/src/images/1.jpg);"></div>
+   <div class="pdf_site" span style="background-image:url(https://github.com/Jumbo125/Turn_JS-ToolbarResponsibility-/blob/main/src/images/1.jpg);"></div>
+   <div class="pdf_site" span style="background-image:url(https://github.com/Jumbo125/Turn_JS-ToolbarResponsibility-/blob/main/src/images/1.jpg);"></div>
+   <div class="pdf_site" span style="background-image:url(https://github.com/Jumbo125/Turn_JS-ToolbarResponsibility-/blob/main/src/images/1.jpg);"></div>
 </div> 
