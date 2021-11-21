@@ -130,4 +130,4 @@ jquery.ui.touch-punch.js
 A big thank to the developer from turn.js and to all Github users who made their script available 
 
 Demo:
-<a href="https://rottmanninfo.at/turn_js.html" target="_blank">Demo</a>
+<a href="https://rottmanninfo.at/turn_js.html" target="_blank" >Demo</a>
