@@ -9,7 +9,7 @@ It look's great! But i'm missing some features.
 <li>since v2 you can scroll with mousewheel to change sites, when the mouse is over the pdf book(optional)</li>
 </ul>
 
-<b>Please let me know it, if you use it and you are happy with it</b>
+<b>Please let me know it, if you use it. </b>
 
 So i wrote a script to easily create a toolbar and make the pdf-book responsibility.
 
