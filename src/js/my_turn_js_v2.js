@@ -31,8 +31,10 @@
 //######################################################################################################################################
 
 //Liabries etc. eiinfügenbootstrape icons einfügen
-jQuery(document).ready(function(){
+	jQuery(document).ready(function(){
 jQuery("head").append('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">');
+
+/*
 jQuery("head").append(`
 <style type="text/css">  
 .pdf_book_scroll{
@@ -102,13 +104,18 @@ bottom: 5px; width: 90%; left: 5%;
 </style>
 `
 );
+*/
+
+
+//minified with https://babeljs.io/
+jQuery("head").append("\n<style type=\"text/css\">  \n.pdf_book_scroll{\n\tposition:relative;\n\theight:100%;\n\tmax-height: 100%;\n\toverflow:hidden;\n\t}\n.turn_js .pdf_site{ \nbackground-position:50% 50%;  \nbackground-position: 50% 50%; \nbackground-size: auto 100%; \nbackground-repeat: no-repeat; \nbackground-color: white;\n} \n\n.controls_fullscreen{ \nposition: absolute; \nbottom: 5px; width: 90%; left: 5%;\nz-index: 100; \n} \n\n.pdf_control_none{\n\tdisplay:none;\n\t} \n\n.bt-options a{\n\tcursor:pointer;\n\t} \n\t\n.move_bt_active{\n\tcolor:red !important;\n}\n\n.bi-fullscreen-exit{\n\tcolor:red !important;\n}\n\n.move_over{\n\tcursor:move;\n\tborder: 2px dotted black;\n}\n\n\t\n.slider{\n\tbackground-color:white; \n\tborder-radius: 20px; width: 50%;\n} \n\n.pdf_book_container {\n\tposition: relative; \n\toverflow: hidden; \n\twidth: 100%; \n\tdisplay: block;\n\t} \n\t\n.pdf_book_wrapper{\n\twidth: fit-content;margin: 0 auto;\n\t} \n\t\n.slider, .bt-options{\n\tmargin: 10px auto 10px auto; \n\tdisplay: block; \n\ttext-align: center; \n\tpadding-top: 5px; \n\tpadding-bottom: 5px;\n\t} \n</style>\n");
 });
 //#####################################################################################################################################
 
 
 // Arrays und variablen deklarieren###############################################
 // controlls Text bzw. wie und welche Symbole angezeigt werden ###############
-		var control_text = `
+		/*var control_text = `
 						<!-- controls -->
 					<div class="controls" data-mousewheel-scroll="false">
         				<div class="slider">
@@ -162,7 +169,10 @@ bottom: 5px; width: 90%; left: 5%;
   						</div>
   						<!-- / miniatures -->
 						`
-		;
+		;*/
+		
+		//minified with  https://babeljs.io/
+		var control_text = "\n\t\t\t\t\t\t<!-- controls -->\n\t\t\t\t\t<div class=\"controls\" data-mousewheel-scroll=\"false\">\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t<div class=\"slider\">\n\t\t\t\t\t\t\t\t<p>Seite <span class=\"current_page\"></span> von <span class=\"all_sites\"></span><br />Umbl\xE4ttern:<br />\n\t\t\t\t\t\t\t\t<input type=\"range\" class=\"pdf-book-slider\" data-pdf-book=\"pdf_id\"   min=\"1\" max_seitanzahl=\"\" step=\"1\" value=\"1\">\n\xA0 \xA0 \xA0 \t\t\t\t\t</p>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"bt-options\">\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t<a class=\"bt-icon-home\" title=\"Zur ersten Seite\">\n\t\t\t\t\t\t\t\t\t<i class=\"bi bi-house home\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t<a class=\"bt-icon-download\" title=\"PDF speichern\" download_src >\n\t\t\t\t\t\t\t\t\t<i class=\"bi bi-download pdf-download\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t<a class=\"bt-icon-prev\" title=\"zur\xFCck\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-arrow-left-circle prev\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t<a class=\"bt-icon-next\" title=\"weiter\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-arrow-right-circle next\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t<a class=\"bt-icon-zoom-in\" title=\"zoom-plus\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-zoom-in zoom-in\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t<a class=\"bt-icon-zoom-out\" title=\"zoom-minus\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-zoom-out zoom-out\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t<a class=\"bt-icon-zoom-standard\" title=\"zoom-normal\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-eyeglasses zoom-default\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t<a class=\"bt-icon-fullscreen\" title=\"Vollbild\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-fullscreen fullscreen\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t<a class=\"bt-icon-move\" title=\"Verschieben\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-arrows-move move\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t<a class=\"bt-icon-back\" title=\"Reset\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-back back\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\n\n\xA0 \xA0 \xA0 \t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\xA0 \xA0 \xA0\xA0\n\n\n\xA0 \t\t\t\t\t\t<!-- / controls -->\n\n\xA0 \t\t\t\t\t\t<!-- miniatures -->\t\n\xA0 \t\t\t\t\t\t<div id=\"miniatures\" class=\"ui-miniatures-slider\" data-pdf-book=\"pdf_id\">\n\xA0 \t\t\t\t\t\t</div>\n\xA0 \t\t\t\t\t\t<!-- / miniatures -->\n\t\t\t\t\t\t";
 //Controlls ENDE #########################################################################################################
 		
 //nun werden unnötige leerezeichen aufgrund der mehrzeiligen string deklarierung entfernt
@@ -185,7 +195,7 @@ function controlls_for_all_books(resposive_ratio, mousewheel_scroll, display, sl
 	});	
 	// Suche Ende#####################################################################################################################
 	
-	for ( let i=0; i<=flipbook_ids.length; i++ ) {
+	for ( var i=0; i<=flipbook_ids.length; i++ ) {
 		
 		if (flipbook_ids[i] === undefined){
 		break;
@@ -208,59 +218,59 @@ function controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, sl
 		var seitenanzahl = jQuery(buch_id).turn("pages");	
 		
 		//nun wird die maximale seitenanzahl für den slider ausgegeben
-		control_text = control_text.replaceAll('max_seitanzahl=""', 'max="' + seitenanzahl + '"' );
+		control_text = control_text.replace('max_seitanzahl=""', 'max="' + seitenanzahl + '"' );
 		
 		//nun werden die attribute data-id mit den dazugehörigen pdf-buch ids gefüllft
-		control_text = control_text.replaceAll('data-pdf-book="pdf_id"', 'data-pdf-book="' + buch_id + '"' );
+		control_text = control_text.replace('data-pdf-book="pdf_id"', 'data-pdf-book="' + buch_id + '"' );
 		
 		//nun wird zur Controllliste bei class class="bt-options" das data-book-id hinzugefügt mit der buch id
-		control_text = control_text.replaceAll('class="bt-options"', 'class="bt-options" data-book-id="' + buch_id + '"');
+		control_text = control_text.replace('class="bt-options"', 'class="bt-options" data-book-id="' + buch_id + '"');
 		
 		//nun wird zur Controllliste bei class class="slider" das data-book-id hinzugefügt mit der buch id
-		control_text = control_text.replaceAll('class="slider"', 'class="slider" data-book-id="' + buch_id + '"');
+		control_text = control_text.replace('class="slider"', 'class="slider" data-book-id="' + buch_id + '"');
 		
 		//nun wird der PDF download-link ergänzt
 		control_text = control_text.replace("download_src", 'href="' + download_pdf_link + '" download');
 		
 		//nun werden nicht erwünschte controlls entfernt
 		if (slider == false){
-			control_text = control_text.replaceAll('class="slider"', 'class="slider pdf_control_none"' );	
+			control_text = control_text.replace('class="slider"', 'class="slider pdf_control_none"' );	
 		}
 		
 		if (bt_options == false){
-			control_text = control_text.replaceAll('class="bt-options"', 'class="bt_options pdf_control_none"' );	
+			control_text = control_text.replace('class="bt-options"', 'class="bt_options pdf_control_none"' );	
 		}
 		
 		if (home == false){
-			control_text = control_text.replaceAll('class="bt-icon-home"', 'class="bt-icon-home pdf_control_none"' );	
+			control_text = control_text.replace('class="bt-icon-home"', 'class="bt-icon-home pdf_control_none"' );	
 		}
 		
 		if (download == false){
-			control_text = control_text.replaceAll('class="bt-icon-download"', 'class="bt-icon-download pdf_control_none"' );	
+			control_text = control_text.replace('class="bt-icon-download"', 'class="bt-icon-download pdf_control_none"' );	
 		}
 		
 		if (prev == false){
-			control_text = control_text.replaceAll('class="bt-icon-prev"', 'class="bt-icon-prev pdf_control_none"' );	
+			control_text = control_text.replace('class="bt-icon-prev"', 'class="bt-icon-prev pdf_control_none"' );	
 		}
 		
 		if (next == false){
-			control_text = control_text.replaceAll('class="bt-icon-next"', 'class="bt-icon-next pdf_control_none"' );	
+			control_text = control_text.replace('class="bt-icon-next"', 'class="bt-icon-next pdf_control_none"' );	
 		}
 		
 		if (zoom_in == false){
-			control_text = control_text.replaceAll('class="bt-icon-zoom-in"', 'class="bt-icon-zoom-in pdf_control_none"' );	
+			control_text = control_text.replace('class="bt-icon-zoom-in"', 'class="bt-icon-zoom-in pdf_control_none"' );	
 		}
 		
 		if (zoom_out == false){
-			control_text = control_text.replaceAll('class="bt-icon-zoom-out"', 'class="bt-icon-zoom-out pdf_control_none"' );	
+			control_text = control_text.replace('class="bt-icon-zoom-out"', 'class="bt-icon-zoom-out pdf_control_none"' );	
 		}
 		
 		if (zoom_default == false){
-			control_text = control_text.replaceAll('class="bt-icon-zoom-standard"', 'class="bt-icon-zoom-standard pdf_control_none"' );	
+			control_text = control_text.replace('class="bt-icon-zoom-standard"', 'class="bt-icon-zoom-standard pdf_control_none"' );	
 		}
 		
 		if (fullscreen == false){
-			control_text = control_text.replaceAll('class="bt-icon-fullscreen"', 'class="bt-icon-fullscreen pdf_control_none"' );	
+			control_text = control_text.replace('class="bt-icon-fullscreen"', 'class="bt-icon-fullscreen pdf_control_none"' );	
 		}	
 		
 		if (responsive_ratio == true){
@@ -269,7 +279,7 @@ function controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, sl
 				var container_width = jQuery(buch_id).parent().parent().width();
 				var book_height;
 				var book_width;
-				const img = new Image();
+				var img = new Image();
 				
 				img.onload = function() {
 					img_width= this.width; 
@@ -293,7 +303,7 @@ function controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, sl
 		}
 		
 		if (mousewheel_scroll == true){
-			control_text = control_text.replaceAll('data-mousewheel-scroll="false"', 'data-mousewheel-scroll="true"') ;	
+			control_text = control_text.replace('data-mousewheel-scroll="false"', 'data-mousewheel-scroll="true"') ;	
 		
 		}
 		
@@ -546,6 +556,8 @@ jQuery(document).on( "click", ".bt-options .back", function() {
 	var id = jQuery(this).closest(".bt-options").attr("data-book-id");
 	move_back(id);
 });
+
+
 
 //scroll
 
