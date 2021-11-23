@@ -101,6 +101,27 @@ bottom: 5px; width: 90%; left: 5%;
 	padding-top: 5px; 
 	padding-bottom: 5px;
 	} 
+	
+	.reflection{
+	position: relative;
+    position: relative;
+    top: 100%;
+    width: 100%;
+    height: 8vh;
+    opacity: 0.45;
+    background-repeat: no-repeat;
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+    -webkit-box-shadow: inset 0 150px 50px -12px #fff;
+    -moz-box-shadow: inset 0 150px 50px -12px #fff;
+    -ms-box-shadow: inset 0 150px 50px -12px #fff;
+    -o-box-shadow: inset 0 150px 50px -12px #fff;
+    background-size: auto;
+    box-shadow: inset 0 15px 10px 0px white;
+}
 </style>
 `
 );
@@ -108,7 +129,7 @@ bottom: 5px; width: 90%; left: 5%;
 
 
 //minified with https://babeljs.io/
-jQuery("head").append("\n<style type=\"text/css\">  \n.pdf_book_scroll{\n\tposition:relative;\n\theight:100%;\n\tmax-height: 100%;\n\toverflow:hidden;\n\t}\n.turn_js .pdf_site{ \nbackground-position:50% 50%;  \nbackground-position: 50% 50%; \nbackground-size: auto 100%; \nbackground-repeat: no-repeat; \nbackground-color: white;\n} \n\n.controls_fullscreen{ \nposition: absolute; \nbottom: 5px; width: 90%; left: 5%;\nz-index: 100; \n} \n\n.pdf_control_none{\n\tdisplay:none;\n\t} \n\n.bt-options a{\n\tcursor:pointer;\n\t} \n\t\n.move_bt_active{\n\tcolor:red !important;\n}\n\n.bi-fullscreen-exit{\n\tcolor:red !important;\n}\n\n.move_over{\n\tcursor:move;\n\tborder: 2px dotted black;\n}\n\n\t\n.slider{\n\tbackground-color:white; \n\tborder-radius: 20px; width: 50%;\n} \n\n.pdf_book_container {\n\tposition: relative; \n\toverflow: hidden; \n\twidth: 100%; \n\tdisplay: block;\n\t} \n\t\n.pdf_book_wrapper{\n\twidth: fit-content;margin: 0 auto;\n\t} \n\t\n.slider, .bt-options{\n\tmargin: 10px auto 10px auto; \n\tdisplay: block; \n\ttext-align: center; \n\tpadding-top: 5px; \n\tpadding-bottom: 5px;\n\t} \n</style>\n");
+jQuery("head").append("\n<style type=\"text/css\">  \n.pdf_book_scroll{\n\tposition:relative;\n\theight:100%;\n\tmax-height: 100%;\n\toverflow:hidden;\n\t}\n.turn_js .pdf_site{ \nbackground-position:50% 50%;  \nbackground-position: 50% 50%; \nbackground-size: auto 100%; \nbackground-repeat: no-repeat; \nbackground-color: white;\n} \n\n.controls_fullscreen{ \nposition: absolute; \nbottom: 5px; width: 90%; left: 5%;\nz-index: 100; \n} \n\n.pdf_control_none{\n\tdisplay:none;\n\t} \n\n.bt-options a{\n\tcursor:pointer;\n\t} \n\t\n.move_bt_active{\n\tcolor:red !important;\n}\n\n.bi-fullscreen-exit{\n\tcolor:red !important;\n}\n\n.move_over{\n\tcursor:move;\n\tborder: 2px dotted black;\n}\n\n\t\n.slider{\n\tbackground-color:white; \n\tborder-radius: 20px; width: 50%;\n} \n\n.pdf_book_container {\n\tposition: relative; \n\toverflow: hidden; \n\twidth: 100%; \n\tdisplay: block;\n\t} \n\t\n.pdf_book_wrapper{\n\twidth: fit-content;margin: 0 auto;\n\t} \n\t\n.slider, .bt-options{\n\tmargin: 10px auto 10px auto; \n\tdisplay: block; \n\ttext-align: center; \n\tpadding-top: 5px; \n\tpadding-bottom: 5px;\n\t} \n .reflection{\nposition: relative;\n    position: relative;\n    top: 100%;\n    width: 100%;\n    height: 8vh;\n    opacity: 0.45;\n    background-repeat: no-repeat;\n    -webkit-transform: rotateX(180deg);\n    -moz-transform: rotateX(180deg);\n    -ms-transform: rotateX(180deg);\n    -o-transform: rotateX(180deg);\n    transform: rotateX(180deg);\n    -webkit-box-shadow: inset 0 150px 50px -12px #fff;\n    -moz-box-shadow: inset 0 150px 50px -12px #fff;\n    -ms-box-shadow: inset 0 150px 50px -12px #fff;\n    -o-box-shadow: inset 0 150px 50px -12px #fff;\n    background-size: auto;\n    box-shadow: inset 0 15px 10px 0px white;}\n  </style>\n");
 });
 //#####################################################################################################################################
 
