@@ -487,6 +487,11 @@ var site_first_load = true;
 var img_base64 = "";
 
 function reflect_img(id){
+
+//prüfen ob reflect erwünscht ist, da es sehr viele ressourecen benötigt
+if (jQuery(id).parent().parent().find(".reflection").length <= 0 ){
+	return;
+}
 jQuery(id).parent().parent().find(".reflection").css("visibility", "hidden");
 	
 	if (site_first_load == true){
