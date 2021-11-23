@@ -1,4 +1,5 @@
-# Turn_JS-ToolbarResponsibility v2
+# Turn_JS-ToolbarResponsibility v3
+##now its reflect and mousewheel include
 <h3>Turn_js extension</h3>
 I use the very great turn.js script to show my pdf files.
 It look's great! But i'm missing some features.
@@ -7,6 +8,7 @@ It look's great! But i'm missing some features.
 <li>Toolbar(optional)</li>
 <li>Responsibility(optional)</li>
 <li>since v2 you can scroll with mousewheel to change sites, when the mouse is over the pdf book(optional)</li>
+<li>since v3 you can insert a reflect</li>
 </ul>
 
 <b>Please let me know it, if you use it. </b>
@@ -59,14 +61,14 @@ You can use two different methods:
 ###Method 1- To search the full site for all PDF-Books and create the same toolbar and more:
 All parameters can be set to true or false. BUT: display can only be set to "single" or "double". To get more infos look at the turn.js documentation "display" 
 ```
-controlls_for_all_books(resposive_ratio, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen )
+controlls_for_all_books(resposive_ratio, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection )
 ```
 
 ###Method 2- Set the pdf-book. Use the ID to select the book.
 All parameters can be set to true or false. BUT: display can only be set to "single" or "double". To get more infos look at the turn.js documentation "display" 
 
 ```
-controlls_for_book(ID, responsive_ratio, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen)
+controlls_for_book(ID, responsive_ratio, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection)
 ```
 
 ###Example
@@ -82,8 +84,8 @@ controlls_for_book(ID, responsive_ratio, display, slider, bt_options, home, down
 
 
 jQuery(document).ready(function() {
-//controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen){    
- controlls_for_book("yourID", true, "single", true, true, false, true, true, true, false, false, false, true);
+//controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection){    
+ controlls_for_book("yourID", true, "single", true, true, false, true, true, true, false, false, false, true, true);
 });
 ``` 
 
