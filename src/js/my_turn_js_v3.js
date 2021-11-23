@@ -102,25 +102,24 @@ bottom: 5px; width: 90%; left: 5%;
 	padding-bottom: 5px;
 	} 
 	
-	.reflection{
-	position: relative;
-    position: relative;
+
+.reflection{
+position: relative;
     top: 100%;
     width: 100%;
     height: 8vh;
     opacity: 0.45;
     background-repeat: no-repeat;
-    -webkit-transform: rotateX(180deg);
-    -moz-transform: rotateX(180deg);
-    -ms-transform: rotateX(180deg);
-    -o-transform: rotateX(180deg);
-    transform: rotateX(180deg);
-    -webkit-box-shadow: inset 0 150px 50px -12px #fff;
-    -moz-box-shadow: inset 0 150px 50px -12px #fff;
-    -ms-box-shadow: inset 0 150px 50px -12px #fff;
-    -o-box-shadow: inset 0 150px 50px -12px #fff;
-    background-size: auto;
-    box-shadow: inset 0 15px 10px 0px white;
+    background-size: cover;
+    box-shadow: inset 0 -10px 10px 0px white;
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-shadow: inset 0 -10px 10px 0px white;
+    -moz-box-shadow: inset 0 -10px 10px 0px white;
+    -ms-box-shadow: inset 0 -10px 10px 0px white;
+    -o-box-shadow: inset 0 -10px 10px 0px white;
+    background-size: cover;
+    box-shadow: inset 0 -10px 10px 0px white;
 }
 </style>
 `
@@ -129,7 +128,7 @@ bottom: 5px; width: 90%; left: 5%;
 
 
 //minified with https://babeljs.io/
-jQuery("head").append("\n<style type=\"text/css\">  \n.pdf_book_scroll{\n\tposition:relative;\n\theight:100%;\n\tmax-height: 100%;\n\toverflow:hidden;\n\t}\n.turn_js .pdf_site{ \nbackground-position:50% 50%;  \nbackground-position: 50% 50%; \nbackground-size: auto 100%; \nbackground-repeat: no-repeat; \nbackground-color: white;\n} \n\n.controls_fullscreen{ \nposition: absolute; \nbottom: 5px; width: 90%; left: 5%;\nz-index: 100; \n} \n\n.pdf_control_none{\n\tdisplay:none;\n\t} \n\n.bt-options a{\n\tcursor:pointer;\n\t} \n\t\n.move_bt_active{\n\tcolor:red !important;\n}\n\n.bi-fullscreen-exit{\n\tcolor:red !important;\n}\n\n.move_over{\n\tcursor:move;\n\tborder: 2px dotted black;\n}\n\n\t\n.slider{\n\tbackground-color:white; \n\tborder-radius: 20px; width: 50%;\n} \n\n.pdf_book_container {\n\tposition: relative; \n\toverflow: hidden; \n\twidth: 100%; \n\tdisplay: block;\n\t} \n\t\n.pdf_book_wrapper{\n\twidth: fit-content;margin: 0 auto;\n\t} \n\t\n.slider, .bt-options{\n\tmargin: 10px auto 10px auto; \n\tdisplay: block; \n\ttext-align: center; \n\tpadding-top: 5px; \n\tpadding-bottom: 5px;\n\t} \n .reflection{\nposition: relative;\n    position: relative;\n    top: 100%;\n    width: 100%;\n    height: 8vh;\n    opacity: 0.45;\n    background-repeat: no-repeat;\n    -webkit-transform: rotateX(180deg);\n    -moz-transform: rotateX(180deg);\n    -ms-transform: rotateX(180deg);\n    -o-transform: rotateX(180deg);\n    transform: rotateX(180deg);\n    -webkit-box-shadow: inset 0 150px 50px -12px #fff;\n    -moz-box-shadow: inset 0 150px 50px -12px #fff;\n    -ms-box-shadow: inset 0 150px 50px -12px #fff;\n    -o-box-shadow: inset 0 150px 50px -12px #fff;\n    background-size: auto;\n    box-shadow: inset 0 15px 10px 0px white;}\n  </style>\n");
+jQuery("head").append("\n<style type=\"text/css\">  \n.pdf_book_scroll{\n\tposition:relative;\n\theight:100%;\n\tmax-height: 100%;\n\toverflow:hidden;\n\t}\n.turn_js .pdf_site{ \nbackground-position:50% 50%;  \nbackground-position: 50% 50%; \nbackground-size: auto 100%; \nbackground-repeat: no-repeat; \nbackground-color: white;\n} \n\n.controls_fullscreen{ \nposition: absolute; \nbottom: 5px; width: 90%; left: 5%;\nz-index: 100; \n} \n\n.pdf_control_none{\n\tdisplay:none;\n\t} \n\n.bt-options a{\n\tcursor:pointer;\n\t} \n\t\n.move_bt_active{\n\tcolor:red !important;\n}\n\n.bi-fullscreen-exit{\n\tcolor:red !important;\n}\n\n.move_over{\n\tcursor:move;\n\tborder: 2px dotted black;\n}\n\n\t\n.slider{\n\tbackground-color:white; \n\tborder-radius: 20px; width: 50%;\n} \n\n.pdf_book_container {\n\tposition: relative; \n\toverflow: hidden; \n\twidth: 100%; \n\tdisplay: block;\n\t} \n\t\n.pdf_book_wrapper{\n\twidth: fit-content;margin: 0 auto;\n\t} \n\t\n.slider, .bt-options{\n\tmargin: 10px auto 10px auto; \n\tdisplay: block; \n\ttext-align: center; \n\tpadding-top: 5px; \n\tpadding-bottom: 5px;\n\t} \n .reflection{\nposition: relative;\n    top: 100%;\n    width: 100%;\n    height: 8vh;\n    opacity: 0.45;\n    background-repeat: no-repeat;\n    background-size: cover;\n    box-shadow: inset 0 -10px 10px 0px white;\n    margin: 0px;\n    padding: 0px;\n    -webkit-box-shadow: inset 0 -10px 10px 0px white;\n    -moz-box-shadow: inset 0 -10px 10px 0px white;\n    -ms-box-shadow: inset 0 -10px 10px 0px white;\n    -o-box-shadow: inset 0 -10px 10px 0px white;\n    background-size: cover;\n    box-shadow: inset 0 -10px 10px 0px white;}\n    </style>\n");
 });
 //#####################################################################################################################################
 
@@ -343,8 +342,11 @@ function controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, sl
 		//reflection
 		if (reflection == true){
 			jQuery(buch_id).parent().parent().append('<div class="reflection"></div>');
-			jQuery(buch_id).parent().parent().find(".reflection").css("background-image", jQuery(buch_id).find("[page='" + current_page + "']").find(".pdf_site").css("background-image"));
+			//jQuery(buch_id).parent().parent().find(".reflection").css("background-image", jQuery(buch_id).find("[page='" + current_page + "']").find(".pdf_site").css("background-image"));
 		}
+		reflect_img(buch_id);
+		
+		
 }
 
 
@@ -480,12 +482,80 @@ function getScrollBarWidth () {
 }
 
 
+//reflection
+var site_first_load = true;
+var img_base64 = "";
+
+function reflect_img(id){
+jQuery(id).parent().parent().find(".reflection").css("visibility", "hidden");
+	
+	if (site_first_load == true){
+		jQuery(window).on("load", function(){
+		setTimeout(function(){
+			html2canvas(document.querySelector(id)).then(canvas => {			
+			img_base64 = canvas.toDataURL();
+					rotate(img_base64, 180, function(rotateBase64) {
+						set_reflection_img(id, rotateBase64);
+						console.log(rotateBase64);
+						jQuery(id).parent().parent().find(".reflection").css("visibility", "visible");
+						site_first_load = false;
+					});
+			
+			});
+		}, 500);
+		});
+	}
+	else if (site_first_load == false){
+		html2canvas(document.querySelector(id)).then(canvas => {
+		img_base64 = canvas.toDataURL();
+					rotate(img_base64, 180, function(rotateBase64) {
+						set_reflection_img(id, rotateBase64);
+						console.log(rotateBase64);
+						jQuery(id).parent().parent().find(".reflection").css("visibility", "visible");
+					});
+		});	
+	}
+	img_base64 = "";
+	
+	
+	
+}
+
+function set_reflection_img(id, img){
+jQuery(id).parent().parent().find(".reflection").css("background-image", "url(" + img + ")");
+}
+
+
+function rotate(srcBase64, degrees, callback) {
+  var canvas = document.createElement('canvas');
+  var ctx = canvas.getContext("2d");
+  var image = new Image();
+
+  image.onload = function () {
+    canvas.width = degrees % 180 === 0 ? image.width : image.height;
+    canvas.height = degrees % 180 === 0 ? image.height : image.width;
+	
+	ctx.setTransform(1, 0, 0, 1, image.width / 2, image.height / 2);
+	ctx.scale(1, -1); // horizontal spiegeln
+	
+	//ctx.translate(canvas.width / 2, canvas.height / 2);
+    //ctx.rotate(degrees * Math.PI / 180);
+	
+    ctx.drawImage(image, image.width / -2, image.height / -2);
+
+    callback(canvas.toDataURL());
+  };
+
+  image.src = srcBase64;
+}
+
 
 //AUSFÜHREN der Controll-Buttons#############################
 //###########################################################
 
 jQuery(document).ready(function(){
-
+	
+	
 	
 	jQuery(".ui-flipbook").bind("turned", function(){
 	var id = "#" + jQuery(this).attr("id");
@@ -494,26 +564,19 @@ jQuery(document).ready(function(){
 	jQuery(id).parent().parent().parent().find(".current_page").html(current_page); 
 	jQuery(id).parent().parent().parent().find(".all_sites").html(all_sites);
 	slider_pdf(id, current_page);
-	
-	});
-
-
-//tunring site
-	jQuery(".ui-flipbook").bind("turned", function(){
-	var id = "#" + jQuery(this).attr("id");
-	var current_page = jQuery(id).turn("page");
-	var image_url = jQuery(id).find("[page='" + current_page + "']").find(".pdf_site").css("background-image");
-	jQuery(id).parent().parent().find(".reflection").css("background-image", image_url);
-	jQuery(id).parent().parent().find(".reflection").css("visibility", "visible");
+	jQuery(id).parent().parent().find(".reflection").css("visibility", "hidden");
+	//reflect img
+	reflect_img(id);
 	});
 	
-	
-
 	jQuery(".ui-flipbook").bind("turning", function(){
 	var id = "#" + jQuery(this).attr("id");
-	var current_page = jQuery(id).turn("page");
-			jQuery(id).parent().parent().find(".reflection").css("visibility", "hidden");
+	jQuery(id).parent().parent().find(".reflection").css("visibility", "hidden");
 	});
+	
+	
+	
+//tunring site
 	
 	jQuery(".ui-flipbook").bind("start", function(){
 			
