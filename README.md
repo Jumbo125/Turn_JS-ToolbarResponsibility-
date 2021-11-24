@@ -8,7 +8,7 @@ It look's great! But i'm missing some features.
 <li>Toolbar(optional)</li>
 <li>Responsibility(optional)</li>
 <li>since v2 you can scroll with mousewheel to change sites, when the mouse is over the pdf book(optional)</li>
-<li>since v3 you can insert a reflect</li>
+<li>since v3 you can insert a reflect. It needs to include html2canvas!</li>
 </ul>
 
 <b>Please let me know it, if you use it. </b>
