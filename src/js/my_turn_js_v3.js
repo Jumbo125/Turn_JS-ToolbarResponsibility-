@@ -527,7 +527,64 @@ jQuery(id).parent().parent().find(".reflection").css("visibility", "hidden");
 }
 
 function set_reflection_img(id, img){
+var display = "single";
+var first_or_last_side = false;
+var reflection_width= jQuery(id).width();
+var pdf_wrapper_left_position = jQuery(id).parent().parent().offset().left;
+var pdf_left_position = jQuery(id).offset().left;
+var pfd_site_position = pdf_left_position - pdf_wrapper_left_position;
+var current_page = jQuery(id).turn("pages");
+var page_view = jQuery(id).turn("view"); //gibt 2 seiten aus wenn doppelt view
+var page_view_split = page_view.toString().split(",");
+
+	/* Prüfung ob einseitig oder zweiseitig ist nicht nötig....
+	
+	//wenn ansicht doppelt ist und nicht single seite
+	if (page_view_split.length > 0){
+		display = "double";
+	}
+	//wenn erste oder letzte seite enthalten sind
+	if (page_view_split.includes("0")){
+		first_or_last_side = true;
+	}	
+	
+	//wenn doppelte seite aber nicht die erste oder letzte seite enthalten ist
+	if (display == "double" && first_or_last_side == false){
+		// Breite ist immer Book_id width //reflection_width = jQuery(id).find("[page='" + page_view_split[0] + "']").width() + jQuery(id).find("[page='" + page_view_split[1] + "']").width();
+		//pdf_left_position = jQuery(id).find("[page='" + page_view_split[0] + "']").offset().left;
+	}
+	
+		//wenn doppelte Ansicht, aber eine davon nicht vorhanden ist, da erste oder letzte seite 	
+	if (display == "double" && first_or_last_side == true){
+			var not_last_or_first_site = "";
+			if (page_view_split[0].includes("0")){
+				not_last_or_first_site = page_view_split[1];
+			}
+			else if (page_view_split[1].includes("0")){
+				not_last_or_first_site = page_view_split[0];
+			}
+		//Breite und position von der EINEN vorhanden seite 	
+		//pdf_left_position = jQuery(id).find("[page='" + not_last_or_first_site + "']").offset().left;
+		// Breite ist immer Book_id width //reflection_width = jQuery(id).find("[page='" + not_last_or_first_site + "']").width();
+	}
+	
+	//wenn display single ist
+	if (display == "single"){
+		// Breite ist immer Book_id width //reflection_width = jQuery(id).find("[page='" + current_page + "']").width();
+		//pdf_left_position = jQuery(id).find("[page='" + current_page + "']").offset().left;
+	}
+	*/
+	 
+	
+	
+	
+jQuery(id).parent().parent().find(".reflection").css("left", pfd_site_position);
+jQuery(id).parent().parent().find(".reflection").css("width", reflection_width);
 jQuery(id).parent().parent().find(".reflection").css("background-image", "url(" + img + ")");
+
+
+
+
 }
 
 
