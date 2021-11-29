@@ -448,12 +448,14 @@ jQuery(document).bind('fullscreenchange webkitfullscreenchange mozfullscreenchan
 
 function move_pdf(id){
 	if (jQuery(id).hasClass("move_over") == true){
+		reflect_display_block(id);
 		jQuery(id).draggable({disabled: true});
 		jQuery(id).removeClass("move_over");
 		jQuery(id).parent().parent().parent().find(".move").removeClass("move_bt_active");
 	}
 	else{
 		jQuery(id).draggable({disabled: false});
+		reflect_display_none(id);
 		jQuery(id).addClass("move_over");
 		jQuery(id).parent().parent().parent().find(".move").addClass("move_bt_active");
 	}
@@ -574,16 +576,10 @@ var page_view_split = page_view.toString().split(",");
 		//pdf_left_position = jQuery(id).find("[page='" + current_page + "']").offset().left;
 	}
 	*/
-	 
-	
-	
-	
+	 	
 jQuery(id).parent().parent().find(".reflection").css("left", pfd_site_position);
 jQuery(id).parent().parent().find(".reflection").css("width", reflection_width);
 jQuery(id).parent().parent().find(".reflection").css("background-image", "url(" + img + ")");
-
-
-
 
 }
 
@@ -609,6 +605,13 @@ function rotate(srcBase64, degrees, callback) {
   };
 
   image.src = srcBase64;
+}
+
+function reflect_display_none(id){
+	jQuery(id).parent().parent().find(".reflection").addClass("pdf_control_none");
+}
+function reflect_display_block(id){
+	jQuery(id).parent().parent().find(".reflection").removeClass("pdf_control_none");
 }
 
 
@@ -700,18 +703,21 @@ jQuery(document).on( "click", ".bt-options .next", function() {
 //Zoom-in Button
 jQuery(document).on( "click", ".bt-options .zoom-in", function() {
 	var id = jQuery(this).closest(".bt-options").attr("data-book-id");
+	reflect_display_none(id);
 	zoom_in_pdf(id);
 });
 
 //Zoom-out Button
 jQuery(document).on( "click", ".bt-options .zoom-out", function() {
 	var id = jQuery(this).closest(".bt-options").attr("data-book-id");
+	reflect_display_none(id);
 	zoom_out_pdf(id);
 });
 	
 //Zoom-default Button
 jQuery(document).on( "click", ".bt-options .zoom-default", function() {
 	var id = jQuery(this).closest(".bt-options").attr("data-book-id");
+	reflect_display_block(id);
 	zoom_default_pdf(id);
 });
 
@@ -723,11 +729,13 @@ jQuery(document).on( "click", ".bt-options .fullscreen", function() {
 		jQuery(this).removeClass("bi-fullscreen");
 		jQuery(this).addClass("bi-fullscreen-exit");
 		jQuery(this).closest(".controls").addClass("controls_fullscreen");
+		reflect_display_none(id);
 	}
 	else if (jQuery(this).hasClass("bi-fullscreen-exit")){
 	jQuery(this).removeClass("bi-fullscreen-exit");
 		jQuery(this).addClass("bi-fullscreen");
 		jQuery(this).closest(".controls").removeClass("controls_fullscreen");
+		reflect_display_block(id);
 	}
 });
 
@@ -741,6 +749,7 @@ jQuery(document).on( "click", ".bt-options .move", function() {
 jQuery(document).on( "click", ".bt-options .back", function() {
 	var id = jQuery(this).closest(".bt-options").attr("data-book-id");
 	move_back(id);
+	reflect_display_block(id);
 });
 
 
