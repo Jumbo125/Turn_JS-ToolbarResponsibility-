@@ -117,6 +117,7 @@ Style it easy with css, for example:
 I use some js libraries: <br>
 jquery.min.js <br>
 jquery-ui.min.js <br>
+html2canvas.js <br>
 
 
 TURN_JS FILES: <br>
