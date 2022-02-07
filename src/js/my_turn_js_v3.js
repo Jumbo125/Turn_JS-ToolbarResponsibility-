@@ -137,6 +137,7 @@ transform: rotateX(45deg);
 	float:left;
 	opacity: 0.1;
 	z-index: 101;
+	font-size:3em;
 }
 .prev_inside:hover{
 	opacity:0.8;
@@ -153,6 +154,7 @@ transform: rotateX(45deg);
 	opacity: 0.1;
 	z-index: 101;
 	text-align: right;
+	font-size:3em;
 	}
 .next_inside:hover{
 	opacity:0.8;
