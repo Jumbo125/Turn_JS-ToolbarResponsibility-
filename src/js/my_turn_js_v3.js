@@ -34,7 +34,7 @@
 	jQuery(document).ready(function(){
 jQuery("head").append('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">');
 
-/*
+
 jQuery("head").append(`
 <style type="text/css">  
 .pdf_book_scroll{
@@ -121,79 +121,86 @@ position: relative;
     background-size: cover;
     box-shadow: inset 0 -10px 10px 0px white;
 }
+
+.flip_parent{
+	perspective: 50em;
+}
+.flip_child{
+transform: rotateX(45deg);	
+}
+
 </style>
 `
 );
-*/
+
+	});
 
 
-//minified with https://babeljs.io/
-jQuery("head").append("\n<style type=\"text/css\">  \n.pdf_book_scroll{\n\tposition:relative;\n\theight:100%;\n\tmax-height: 100%;\n\toverflow:hidden;\n\t}\n.turn_js .pdf_site{ \nbackground-position:50% 50%;  \nbackground-position: 50% 50%; \nbackground-size: auto 100%; \nbackground-repeat: no-repeat; \nbackground-color: white;\n} \n\n.controls_fullscreen{ \nposition: absolute; \nbottom: 5px; width: 90%; left: 5%;\nz-index: 100; \n} \n\n.pdf_control_none{\n\tdisplay:none;\n\t} \n\n.bt-options a{\n\tcursor:pointer;\n\t} \n\t\n.move_bt_active{\n\tcolor:red !important;\n}\n\n.bi-fullscreen-exit{\n\tcolor:red !important;\n}\n\n.move_over{\n\tcursor:move;\n\tborder: 2px dotted black;\n}\n\n\t\n.slider{\n\tbackground-color:white; \n\tborder-radius: 20px; width: 50%;\n} \n\n.pdf_book_container {\n\tposition: relative; \n\toverflow: hidden; \n\twidth: 100%; \n\tdisplay: block;\n\t} \n\t\n.pdf_book_wrapper{\n\twidth: fit-content;margin: 0 auto;\n\t} \n\t\n.slider, .bt-options{\n\tmargin: 10px auto 10px auto; \n\tdisplay: block; \n\ttext-align: center; \n\tpadding-top: 5px; \n\tpadding-bottom: 5px;\n\t} \n .reflection{\nposition: relative;\n    top: 100%;\n    width: 100%;\n    height: 8vh;\n    opacity: 0.45;\n    background-repeat: no-repeat;\n    background-size: cover;\n    box-shadow: inset 0 -10px 10px 0px white;\n    margin: 0px;\n    padding: 0px;\n    -webkit-box-shadow: inset 0 -10px 10px 0px white;\n    -moz-box-shadow: inset 0 -10px 10px 0px white;\n    -ms-box-shadow: inset 0 -10px 10px 0px white;\n    -o-box-shadow: inset 0 -10px 10px 0px white;\n    background-size: cover;\n    box-shadow: inset 0 -10px 10px 0px white;}\n    </style>\n");
-});
 //#####################################################################################################################################
 
 
 // Arrays und variablen deklarieren###############################################
 // controlls Text bzw. wie und welche Symbole angezeigt werden ###############
-		/*var control_text = `
+		var control_text = `
 						<!-- controls -->
 					<div class="controls" data-mousewheel-scroll="false">
-        				<div class="slider">
+        				<div class="slider">
 								<p>Seite <span class="current_page"></span> von <span class="all_sites"></span><br />Umblättern:<br />
 								<input type="range" class="pdf-book-slider" data-pdf-book="pdf_id"   min="1" max_seitanzahl="" step="1" value="1">
-      					</p>
+      					</p>
 						</div>
 
 						<div class="bt-options">
-        						<a class="bt-icon-home" title="Zur ersten Seite">
+        						<a class="bt-icon-home" title="Zur ersten Seite">
 									<i class="bi bi-house home" data-pdf-book="pdf_id"></i>
-        						</a>
-        						<a class="bt-icon-download" title="PDF speichern" download_src >
+        						</a>
+        						<a class="bt-icon-download" title="PDF speichern" download_src >
 									<i class="bi bi-download pdf-download" data-pdf-book="pdf_id"></i>
-        						</a>
-        						<a class="bt-icon-prev" title="zurück">
-          							<i class="bi bi-arrow-left-circle prev" data-pdf-book="pdf_id"></i>
-        						</a>
-        						<a class="bt-icon-next" title="weiter">
-          							<i class="bi bi-arrow-right-circle next" data-pdf-book="pdf_id"></i>
-        						</a>
-        						<a class="bt-icon-zoom-in" title="zoom-plus">
-          							<i class="bi bi-zoom-in zoom-in" data-pdf-book="pdf_id"></i>
-        						</a>
-        						<a class="bt-icon-zoom-out" title="zoom-minus">
-          							<i class="bi bi-zoom-out zoom-out" data-pdf-book="pdf_id"></i>
-        						</a>
+        						</a>
+        						<a class="bt-icon-prev" title="zurück">
+          							<i class="bi bi-arrow-left-circle prev" data-pdf-book="pdf_id"></i>
+        						</a>
+        						<a class="bt-icon-next" title="weiter">
+          							<i class="bi bi-arrow-right-circle next" data-pdf-book="pdf_id"></i>
+        						</a>
+        						<a class="bt-icon-zoom-in" title="zoom-plus">
+          							<i class="bi bi-zoom-in zoom-in" data-pdf-book="pdf_id"></i>
+        						</a>
+        						<a class="bt-icon-zoom-out" title="zoom-minus">
+          							<i class="bi bi-zoom-out zoom-out" data-pdf-book="pdf_id"></i>
+        						</a>
 								<a class="bt-icon-zoom-standard" title="zoom-normal">
-          							<i class="bi bi-eyeglasses zoom-default" data-pdf-book="pdf_id"></i>
-        						</a>
+          							<i class="bi bi-eyeglasses zoom-default" data-pdf-book="pdf_id"></i>
+        						</a>
+								<a class="bt-icon-bi-book" title="transform">
+									<i class="bi bi-book transform-book" data-pdf-book="pdf_id" data-transform="disabled"></i>
+								</a>	
 								<a class="bt-icon-fullscreen" title="Vollbild">
-          							<i class="bi bi-fullscreen fullscreen" data-pdf-book="pdf_id"></i>
-        						</a>
+          							<i class="bi bi-fullscreen fullscreen" data-pdf-book="pdf_id"></i>
+        						</a>
 								<a class="bt-icon-move" title="Verschieben">
-          							<i class="bi bi-arrows-move move" data-pdf-book="pdf_id"></i>
-        						</a>
+          							<i class="bi bi-arrows-move move" data-pdf-book="pdf_id"></i>
+        						</a>
 								<a class="bt-icon-back" title="Reset">
-          							<i class="bi bi-back back" data-pdf-book="pdf_id"></i>
-        						</a>
+          							<i class="bi bi-back back" data-pdf-book="pdf_id"></i>
+        						</a>
 
 
-      					</div>
+      					</div>
 					</div>
-      
+      
 
 
-  						<!-- / controls -->
+  						<!-- / controls -->
 
-  						<!-- miniatures -->	
-  						<div id="miniatures" class="ui-miniatures-slider" data-pdf-book="pdf_id">
-  						</div>
-  						<!-- / miniatures -->
+  						<!-- miniatures -->	
+  						<div id="miniatures" class="ui-miniatures-slider" data-pdf-book="pdf_id">
+  						</div>
+  						<!-- / miniatures -->
 						`
-		;*/
+		;
 		
-		//minified with  https://babeljs.io/
-		var control_text = "\n\t\t\t\t\t\t<!-- controls -->\n\t\t\t\t\t<div class=\"controls\" data-mousewheel-scroll=\"false\">\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t<div class=\"slider\">\n\t\t\t\t\t\t\t\t<p>Seite <span class=\"current_page\"></span> von <span class=\"all_sites\"></span><br />Umbl\xE4ttern:<br />\n\t\t\t\t\t\t\t\t<input type=\"range\" class=\"pdf-book-slider\" data-pdf-book=\"pdf_id\"   min=\"1\" max_seitanzahl=\"\" step=\"1\" value=\"1\">\n\xA0 \xA0 \xA0 \t\t\t\t\t</p>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"bt-options\">\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t<a class=\"bt-icon-home\" title=\"Zur ersten Seite\">\n\t\t\t\t\t\t\t\t\t<i class=\"bi bi-house home\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t<a class=\"bt-icon-download\" title=\"PDF speichern\" download_src >\n\t\t\t\t\t\t\t\t\t<i class=\"bi bi-download pdf-download\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t<a class=\"bt-icon-prev\" title=\"zur\xFCck\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-arrow-left-circle prev\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t<a class=\"bt-icon-next\" title=\"weiter\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-arrow-right-circle next\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t<a class=\"bt-icon-zoom-in\" title=\"zoom-plus\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-zoom-in zoom-in\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t<a class=\"bt-icon-zoom-out\" title=\"zoom-minus\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-zoom-out zoom-out\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t<a class=\"bt-icon-zoom-standard\" title=\"zoom-normal\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-eyeglasses zoom-default\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t<a class=\"bt-icon-fullscreen\" title=\"Vollbild\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-fullscreen fullscreen\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t<a class=\"bt-icon-move\" title=\"Verschieben\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-arrows-move move\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t<a class=\"bt-icon-back\" title=\"Reset\">\n\xA0 \xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t\t<i class=\"bi bi-back back\" data-pdf-book=\"pdf_id\"></i>\n\xA0 \xA0 \xA0 \xA0 \t\t\t\t\t\t</a>\n\n\n\xA0 \xA0 \xA0 \t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\xA0 \xA0 \xA0\xA0\n\n\n\xA0 \t\t\t\t\t\t<!-- / controls -->\n\n\xA0 \t\t\t\t\t\t<!-- miniatures -->\t\n\xA0 \t\t\t\t\t\t<div id=\"miniatures\" class=\"ui-miniatures-slider\" data-pdf-book=\"pdf_id\">\n\xA0 \t\t\t\t\t\t</div>\n\xA0 \t\t\t\t\t\t<!-- / miniatures -->\n\t\t\t\t\t\t";
-//Controlls ENDE #########################################################################################################
+		//Controlls ENDE #########################################################################################################
 		
 //nun werden unnötige leerezeichen aufgrund der mehrzeiligen string deklarierung entfernt
 control_text = control_text.replace(/\s\s+/g, ' ');
@@ -208,7 +215,7 @@ var flipbook_ids = new Array ();
 //###############Functionen############################
 //#####################################################
 
-function controlls_for_all_books(resposive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen ){	
+function controlls_for_all_books(resposive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, transform ){	
 	// suchen nach pdf-Flipbooks und lade die ids in das array flipbook_ids###########################################################
 	jQuery("body").find(".ui-flipbook").each(function(){
 		flipbook_ids.push("#" + jQuery(this).attr("id"));	
@@ -220,14 +227,14 @@ function controlls_for_all_books(resposive_ratio, mousewheel_scroll, display, sl
 		if (flipbook_ids[i] === undefined){
 		break;
 		}
-	controlls_for_book(flipbook_ids[i], responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen);
+	controlls_for_book(flipbook_ids[i], responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, transform);
 	}
 	
 }
 
 
 
-function controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection){	
+function controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, transform){	
 	var buch_id = ID;
 	var download_pdf_link = jQuery(buch_id).attr("data-pdf-src");
 	
@@ -345,6 +352,11 @@ function controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, sl
 			//jQuery(buch_id).parent().parent().find(".reflection").css("background-image", jQuery(buch_id).find("[page='" + current_page + "']").find(".pdf_site").css("background-image"));
 		}
 		reflect_img(buch_id);
+		
+		//transform
+		if (transform == false){
+			control_text = control_text.replace('class="bt-icon-book"', 'class="bt-icon-book pdf_control_none"' );	
+		}
 		
 		
 }
@@ -613,6 +625,16 @@ function reflect_display_none(id){
 function reflect_display_block(id){
 	jQuery(id).parent().parent().find(".reflection").removeClass("pdf_control_none");
 }
+function transform_book(id, visibility){
+	if (visibility == "disabled"){
+	jQuery(id).closest(".pdf_book_container").addClass("flip_parent");
+	jQuery(id).closest(".pdf_book_wrapper").addClass("flip_child");
+	}
+	if (visibility == "enable"){
+	jQuery(id).closest(".pdf_book_container").removeClass("flip_parent");
+	jQuery(id).closest(".pdf_book_wrapper").removeClass("flip_child");
+	}
+}
 
 
 //AUSFÜHREN der Controll-Buttons#############################
@@ -753,6 +775,24 @@ jQuery(document).on( "click", ".bt-options .back", function() {
 });
 
 
+//Transform_Book
+jQuery(document).on( "click", ".bt-options .transform-book", function() {
+	
+	var id = jQuery(this).closest(".bt-options").attr("data-book-id");
+	var transform_status = jQuery(this).attr("data-transform");
+	var visibility = transform_status;
+	
+	if (transform_status == "disabled"){
+		transform_book(id, visibility);
+	jQuery(this).attr("data-transform", "enable");	
+	}
+	if (transform_status == "enable"){
+		transform_book(id, visibility);
+		jQuery(this).attr("data-transform", "disabled");	
+	}
+	
+});
+
 
 //scroll
 
@@ -816,8 +856,28 @@ jQuery("html").on('DOMMouseScroll mousewheel', function (e) {
   }
 });
 	
+
  
 }); //document.ready(function) ende
 	
+	jQuery(window).on("load", function(){
 	
+	//falls mehr Buttons als wrap breite, umbrechen
+	jQuery("body").find(".bt-options").each(function(){
+		var button_anzahl = jQuery(this).find("a").length;
+		var button_width = jQuery(this).find("a").length * jQuery(this).children("a").width();
+		var bt_options_width = jQuery(this).width();
+		var button_anzahl = jQuery(this).find("a").length;
+		var max_button_pro_zeile = Math.round(button_anzahl / 2);
+		
+		if (button_width > bt_options_width){
+			jQuery(this).find("a").eq(max_button_pro_zeile).after("<br />");
+			
+		}
+		
+		
+		
+	});
+	
+	});
 	
