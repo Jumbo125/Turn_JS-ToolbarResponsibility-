@@ -84,7 +84,7 @@ controlls_for_book(ID, responsive_ratio, display, slider, bt_options, home, down
 
 
 jQuery(document).ready(function() {
-//controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, transform_book){    
+//controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, transform_book, buttons_inside){    
 ID = "your id" 
 display = "singel" or "double"
 all other parameters can be: true ord false
