@@ -394,7 +394,6 @@ function controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, sl
 		}
 		
 		
-	alert(inside_button);
 		if (inside_button == true){ 
 		//next prev_button
 		jQuery(buch_id).parent(".pdf_book_wrapper").prepend("<div class='clear_float'></div>");
