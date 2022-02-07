@@ -128,6 +128,39 @@ position: relative;
 .flip_child{
 transform: rotateX(45deg);	
 }
+.prev_inside {
+	width: 10%;
+    height: 50px;
+    position: absolute;
+    top: 45%;
+    left: 0%;
+	float:left;
+	opacity: 0.1;
+	z-index: 101;
+}
+.prev_inside:hover{
+	opacity:0.8;
+	cursor:pointer;
+}
+	
+.next_inside {
+	width: 10%;
+    height: 50px;
+    position: absolute;
+    top: 45%;
+    right: 0;
+	float:left;
+	opacity: 0.1;
+	z-index: 101;
+	text-align: right;
+	}
+.next_inside:hover{
+	opacity:0.8;
+	cursor:pointer;
+}
+.clear_float{
+	clear:both;
+}
 
 </style>
 `
@@ -215,7 +248,7 @@ var flipbook_ids = new Array ();
 //###############Functionen############################
 //#####################################################
 
-function controlls_for_all_books(resposive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, transform ){	
+function controlls_for_all_books(resposive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, transform, inside_button ){	
 	// suchen nach pdf-Flipbooks und lade die ids in das array flipbook_ids###########################################################
 	jQuery("body").find(".ui-flipbook").each(function(){
 		flipbook_ids.push("#" + jQuery(this).attr("id"));	
@@ -227,14 +260,14 @@ function controlls_for_all_books(resposive_ratio, mousewheel_scroll, display, sl
 		if (flipbook_ids[i] === undefined){
 		break;
 		}
-	controlls_for_book(flipbook_ids[i], responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, transform);
+	controlls_for_book(flipbook_ids[i], responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, transform, inside_button);
 	}
 	
 }
 
 
 
-function controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, transform){	
+function controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, transform, inside_button){	
 	var buch_id = ID;
 	var download_pdf_link = jQuery(buch_id).attr("data-pdf-src");
 	
@@ -358,6 +391,14 @@ function controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, sl
 			control_text = control_text.replace('class="bt-icon-book"', 'class="bt-icon-book pdf_control_none"' );	
 		}
 		
+		
+	alert(inside_button);
+		if (inside_button == true){ 
+		//next prev_button
+		jQuery(buch_id).parent(".pdf_book_wrapper").prepend("<div class='clear_float'></div>");
+		jQuery(buch_id).parent(".pdf_book_wrapper").prepend("<div class='next_inside' data-next='" + buch_id + "'><i class='bi bi-arrow-right-square-fill'></i></div>");
+		jQuery(buch_id).parent(".pdf_book_wrapper").prepend("<div class='prev_inside' data-prev='" + buch_id + "'><i class='bi bi-arrow-left-square-fill'></i></div>");
+		}
 		
 }
 
@@ -722,6 +763,31 @@ jQuery(document).on( "click", ".bt-options .next", function() {
 	jQuery(id).parent().parent().parent().find(".pdf-book-slider").val(current_page);  
 });
 
+
+//Prev inside book
+jQuery(document).on( "click", ".prev_inside", function() {
+	var id = jQuery(this).attr("data-prev");
+	prev_pdf(id);
+	var current_page = jQuery(id).turn("page");
+	var all_sites = jQuery(id).turn("pages");
+	jQuery(id).parent().parent().parent().find(".current_page").html(current_page); 
+	jQuery(id).parent().parent().parent().find(".all_sites").html(all_sites);
+	jQuery(id).parent().parent().parent().find(".pdf-book-slider").val(current_page); 
+});
+
+//next inside book
+jQuery(document).on( "click", ".next_inside", function() {
+	var id = jQuery(this).attr("data-next");
+	next_pdf(id);
+	
+	var current_page = jQuery(id).turn("page");
+	var all_sites = jQuery(id).turn("pages");
+	jQuery(id).parent().parent().parent().find(".current_page").html(current_page); 
+	jQuery(id).parent().parent().parent().find(".all_sites").html(all_sites);
+	jQuery(id).parent().parent().parent().find(".pdf-book-slider").val(current_page);  
+});
+
+
 //Zoom-in Button
 jQuery(document).on( "click", ".bt-options .zoom-in", function() {
 	var id = jQuery(this).closest(".bt-options").attr("data-book-id");
@@ -808,7 +874,7 @@ jQuery(document).on('mouseenter mouseleave', '.ui-flipbook', function (e) {
  //wenn maus über pdf-book ist UND das attribute data-mousewheel-scroll auf true gesett ist(wird bei funktionsaufruf abgefragt, ob gescrollt werden soll), wird  die variable mouse_over auf true gesetzt und das scrollen aktiviert
 	if (e.type === 'mouseenter' && jQuery(this).parent().parent().parent().children(".controls").attr("data-mousewheel-scroll") == "true"){
 		jQuery("body").addClass("pdf_book_scroll");
-		jQuery("body").css("marginRight", getScrollBarWidth());
+		//jQuery("body").css("marginRight", getScrollBarWidth());
 		mouse_over = true;
 		mouse_over_id = jQuery(this).attr("id");
 	}
@@ -860,7 +926,7 @@ jQuery("html").on('DOMMouseScroll mousewheel', function (e) {
  
 }); //document.ready(function) ende
 	
-	jQuery(window).on("load", function(){
+jQuery(window).on("load", function(){
 	
 	//falls mehr Buttons als wrap breite, umbrechen
 	jQuery("body").find(".bt-options").each(function(){
@@ -878,6 +944,5 @@ jQuery("html").on('DOMMouseScroll mousewheel', function (e) {
 		
 		
 	});
-	
-	});
+});
 	
