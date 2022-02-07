@@ -68,7 +68,7 @@ controlls_for_all_books(resposive_ratio, display, slider, bt_options, home, down
 All parameters can be set to true or false. BUT: display can only be set to "single" or "double". To get more infos look at the turn.js documentation "display" 
 
 ```
-controlls_for_book(ID, responsive_ratio, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection)
+controlls_for_book(ID, responsive_ratio, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, transform_book)
 ```
 
 ###Example
@@ -84,7 +84,7 @@ controlls_for_book(ID, responsive_ratio, display, slider, bt_options, home, down
 
 
 jQuery(document).ready(function() {
-//controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection){    
+//controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, transform_book){    
 ID = "your id" 
 display = "singel" or "double"
 all other parameters can be: true ord false
