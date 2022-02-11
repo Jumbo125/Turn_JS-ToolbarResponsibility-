@@ -53,7 +53,14 @@ background-color: white;
 
 .controls_fullscreen{ 
 position: absolute; 
-bottom: 5px; width: 90%; left: 5%;
+bottom: 5px; 
+width: 90%;
+max-width: 90%; 
+left: 5%;
+z-index: 101;
+background-color: white;
+overflow: hidden;
+border-radius: 5px;
 } 
 
 .pdf_control_none{
