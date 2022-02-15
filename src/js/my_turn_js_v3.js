@@ -58,9 +58,10 @@ width: 90%;
 max-width: 90%; 
 left: 5%;
 z-index: 101;
-background-color: white;
+background-color: RGBA(255,255,255,0.56);
 overflow: hidden;
 border-radius: 5px;
+
 } 
 
 .pdf_control_none{
@@ -144,7 +145,7 @@ transform: rotateX(45deg);
 	float:left;
 	opacity: 0.1;
 	z-index: 101;
-	font-size:3em;
+	font-size:1em;
 }
 .prev_inside:hover{
 	opacity:0.8;
@@ -161,7 +162,7 @@ transform: rotateX(45deg);
 	opacity: 0.1;
 	z-index: 101;
 	text-align: right;
-	font-size:3em;
+	font-size:1em;
 	}
 .next_inside:hover{
 	opacity:0.8;
@@ -401,6 +402,7 @@ function controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, sl
 		}
 		
 		
+	
 		if (inside_button == true){ 
 		//next prev_button
 		jQuery(buch_id).parent(".pdf_book_wrapper").prepend("<div class='clear_float'></div>");
@@ -878,16 +880,16 @@ var scroll_counter = 1;
 
 
 jQuery(document).on('mouseenter mouseleave', '.ui-flipbook', function (e) {
-		
+		 e.preventDefault();
  //wenn maus über pdf-book ist UND das attribute data-mousewheel-scroll auf true gesett ist(wird bei funktionsaufruf abgefragt, ob gescrollt werden soll), wird  die variable mouse_over auf true gesetzt und das scrollen aktiviert
 	if (e.type === 'mouseenter' && jQuery(this).parent().parent().parent().children(".controls").attr("data-mousewheel-scroll") == "true"){
-		jQuery("body").addClass("pdf_book_scroll");
+		jQuery("html").addClass("pdf_book_scroll");
 		//jQuery("body").css("marginRight", getScrollBarWidth());
 		mouse_over = true;
 		mouse_over_id = jQuery(this).attr("id");
 	}
 	else {
-		jQuery("body").removeClass("pdf_book_scroll");	
+		jQuery("html").removeClass("pdf_book_scroll");	
 		jQuery("body").css("marginRight", "0px");
 		mouse_over = false;
 	}
