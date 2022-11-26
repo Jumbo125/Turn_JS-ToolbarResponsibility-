@@ -353,12 +353,12 @@ function controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, sl
 			});
 		}
 		
-		if (color !== "" || color !== undefined){
+		if (color !== "" && color !== undefined){
 			jQuery('*[data-book-id="' + buch_id +'"]').attr("id", buch_id.replace("#", "") + "_button_color");
 			jQuery("head").append("<style type='text/css'>" + buch_id + "_button_color i.bi {color:" + color + " !important; }</style>");
 		}
 		
-		if (color_hover !== "" || color_hover !== undefined){
+		if (color_hover !== "" && color_hover !== undefined){
 			jQuery('*[data-book-id="' + buch_id +'"]').attr("id", buch_id.replace("#", "") + "_button_color");
 			jQuery("head").append("<style type='text/css'>" + buch_id + "_button_color i.bi:hover {color:" + color_hover + " !important; }</style>");
 		}
