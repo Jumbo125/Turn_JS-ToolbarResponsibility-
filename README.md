@@ -75,16 +75,16 @@ controlls_for_book(ID, responsive_ratio, display, slider, bt_options, home, down
 ```ruby
 
 <div style="width:90%; //Your responsive width of the parent"><div id="yourID" class="turn_js ui-flipbook" data-pdf-src="path_to_the_pdf_file">
-   <div class="pdf_site" span style="background-image:url(path_to_site_1_jpg);"></div>
-   <div class="pdf_site" span style="background-image:url(path_to_site_2_jpg);"></div>
-   <div class="pdf_site" span style="background-image:url(path_to_site_3_jpg);"></div>
-   <div class="pdf_site" span style="background-image:url(path_to_site_1_jpg);"></div>
+   <div class="pdf_site"  style="background-image:url(path_to_site_1_jpg);"></div>
+   <div class="pdf_site"  style="background-image:url(path_to_site_2_jpg);"></div>
+   <div class="pdf_site"  style="background-image:url(path_to_site_3_jpg);"></div>
+   <div class="pdf_site"  style="background-image:url(path_to_site_1_jpg);"></div>
 </div> 
 
 
 
 jQuery(document).ready(function() {
-//controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, transform_book, buttons_inside){    
+//controlls_for_all_books(resposive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, tooltip, color, color_hover ){    
 ID = "your id" 
 display = "singel" or "double"
 all other parameters can be: true ord false
