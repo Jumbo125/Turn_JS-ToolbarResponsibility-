@@ -61,14 +61,14 @@ You can use two different methods:
 ###Method 1- To search the full site for all PDF-Books and create the same toolbar and more:
 All parameters can be set to true or false. BUT: display can only be set to "single" or "double". To get more infos look at the turn.js documentation "display" 
 ```
-controlls_for_all_books(resposive_ratio, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, transform_book, buttons_inside )
+controlls_for_all_books(resposive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, tooltip, color, color_hover )
 ```
 
 ###Method 2- Set the pdf-book. Use the ID to select the book.
 All parameters can be set to true or false. BUT: display can only be set to "single" or "double". To get more infos look at the turn.js documentation "display" 
 
 ```
-controlls_for_book(ID, responsive_ratio, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, transform_book, buttons_inside)
+controlls_for_book(ID, responsive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, tooltip, color, color_hover)
 ```
 
 ###Example
@@ -87,6 +87,7 @@ jQuery(document).ready(function() {
 //controlls_for_all_books(resposive_ratio, mousewheel_scroll, display, slider, bt_options, home, download, prev, next, zoom_in, zoom_out, zoom_default, fullscreen, reflection, tooltip, color, color_hover ){    
 ID = "your id" 
 display = "singel" or "double"
+color = rgb, or something else (string)
 all other parameters can be: true ord false
 ``` 
 
